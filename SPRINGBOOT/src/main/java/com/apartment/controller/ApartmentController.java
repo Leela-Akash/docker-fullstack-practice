@@ -16,10 +16,6 @@ public class ApartmentController {
     public ApartmentController(ApartmentService service) {
         this.service = service;
     }
-    @GetMapping("/health")
-    public String healthCheck() {
-        return "✅ RentWise Backend is running!";
-    }
 
     @GetMapping
     public List<Apartment> getAll() {
