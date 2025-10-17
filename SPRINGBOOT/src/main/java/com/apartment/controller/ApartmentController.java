@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/apartments")
+
 @CrossOrigin(origins = "*") // frontend port for Vite
 public class ApartmentController {
 
