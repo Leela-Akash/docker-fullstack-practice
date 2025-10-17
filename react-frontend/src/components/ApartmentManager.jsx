@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 
-// Use env URL and append /apartments where needed
+// Use environment variable
 const API_URL = import.meta.env.VITE_API_URL;
 
 const ApartmentManager = () => {
@@ -11,7 +11,7 @@ const ApartmentManager = () => {
   const [editId, setEditId] = useState(null);
 
   const fetchApartments = async () => {
-    const res = await axios.get(`${API_URL}/apartments`);
+    const res = await axios.get(API_URL);
     setApartments(res.data);
   };
 
@@ -24,9 +24,9 @@ const ApartmentManager = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (editId) {
-      await axios.put(`${API_URL}/apartments/${editId}`, form);
+      await axios.put(`${API_URL}/${editId}`, form);
     } else {
-      await axios.post(`${API_URL}/apartments`, form);
+      await axios.post(API_URL, form);
     }
     setForm({ name: "", location: "", rent: "", status: "Available" });
     setEditId(null);
@@ -34,7 +34,7 @@ const ApartmentManager = () => {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`${API_URL}/apartments/${id}`);
+    await axios.delete(`${API_URL}/${id}`);
     fetchApartments();
   };
 
@@ -44,7 +44,7 @@ const ApartmentManager = () => {
   };
 
   const handleToggleStatus = async (id) => {
-    await axios.patch(`${API_URL}/apartments/${id}/toggle-status`);
+    await axios.patch(`${API_URL}/${id}/toggle-status`);
     fetchApartments();
   };
 
