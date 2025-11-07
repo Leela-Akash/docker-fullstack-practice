@@ -29,7 +29,7 @@ jobs:
           context: ./SPRINGBOOT
           file: ./SPRINGBOOT/backend.Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/apartment-backend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/prac-apartment-backend:maridi
 
       - name: Build and push frontend image
         uses: docker/build-push-action@v5
@@ -37,4 +37,4 @@ jobs:
           context: ./react-frontend
           file: ./react-frontend/frontend.Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/apartment-frontend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/prac-apartment-frontend:maridi
